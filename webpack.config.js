@@ -15,13 +15,15 @@ module.exports = {
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: true }
+            options: {
+              attrs: [':data-src']
+            }
           }
         ]
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
